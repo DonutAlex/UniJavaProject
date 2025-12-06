@@ -9,7 +9,11 @@ public class Course {
         return name;
     }
 
-    public Course(String name, double numberOfHours,  Student[] participants) {
+    public double getNumberOfHours() {
+        return numberOfHours;
+    }
+
+    public Course(String name, double numberOfHours, Student[] participants) {
         this.name = name;
         this.numberOfHours = numberOfHours;
         this.participants = participants;
