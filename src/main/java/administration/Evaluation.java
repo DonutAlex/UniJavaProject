@@ -4,10 +4,11 @@ import uczelnia.Course;
 import uczelnia.Lecture;
 import uczelnia.Student;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Evaluation {
-    public static List<Course> courses;
-    public static List<Lecture> lectures;
+    public static List<Course> courses = new ArrayList<>();
+    public static List<Lecture> lectures = new ArrayList<>();
 
     private static boolean[][] result;
 
@@ -74,12 +75,13 @@ public class Evaluation {
                 System.out.print(tempStudent.getFirstName() + " " + tempStudent.getLastName() + " - ");
 
                 if (result[indeksKursu][indeksStudenta]){
-                    System.out.print("pass");
+                    System.out.print("pass\n");
                 }
                 else{
-                    System.out.print("fail");
+                    System.out.print("fail\n");
                 }
             }
+            System.out.print("\n");
         }
     }
 }
