@@ -16,6 +16,9 @@ public class SolvedHomework extends Homework{
         this.solutionAuthor = solutionAuthor;
     }
 
+    public SolvedHomework() {
+    }
+
     public String getSolution() {
         return solution;
     }

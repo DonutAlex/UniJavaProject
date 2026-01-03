@@ -13,6 +13,9 @@ public class Homework {
         this.maxPoints = maxPoints;
     }
 
+    public Homework() {
+    }
+
     public String getTitle() {
         return title;
     }
