@@ -1,6 +1,6 @@
 package uczelnia;
 
-public class Poet extends ExperiencedLecturer {
+public class Poet extends ExperiencedLecturer implements IsThesisGradable{
     private String hatedAuthor;
 
     public String getHatedAuthor() {
@@ -14,6 +14,14 @@ public class Poet extends ExperiencedLecturer {
     public Poet(String hatedAuthor, int expierienceYears, String firstName, String lastName, int employeeNumber) {
         super(firstName, lastName, employeeNumber, expierienceYears);
         this.hatedAuthor = hatedAuthor;
+    }
+
+    @Override
+    public double gradeThesis(String thesis){
+        if(thesis.contains(hatedAuthor)){
+            return 1.5;
+        }
+        return 5.5;
     }
 
     @Override

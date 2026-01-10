@@ -16,6 +16,7 @@ public class Main {
         HumanResources.addPerson("Grzegorz", "Ciekawy", 3, false);
 
         HumanResources.addPerson(15, 4, "Adam", "Małysz", 3);
+        HumanResources.addPerson("public", 4, "Karol", "Wojtyła", 4);
 
         System.out.println("Wykładowcy:");
         for(int i=0; i< HumanResources.numberOfLectuers; i++){
@@ -88,6 +89,10 @@ public class Main {
                 System.out.println("Oceniający: ");
                 experiencedLecturer.showInfo();
                 System.out.println("Ocena: " + ocena.getGrade());
+
+                if(lecturer instanceof IsThesisGradable){
+                    System.out.println(((IsThesisGradable) lecturer).gradeThesis(solvedHomework.getSolution()));
+                }
             }
         }
 
