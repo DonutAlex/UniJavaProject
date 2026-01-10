@@ -1,5 +1,7 @@
 package uczelnia;
 
+import administration.Evaluation;
+
 public class Student {
     private String firstName;
     private String lastName;
@@ -27,5 +29,11 @@ public class Student {
 
     public void showInfo(){
         System.out.println("#" + indexNumber + " First Name: " + getFirstName() + " Last Name: " + getLastName());
+    }
+
+    public SolvedHomework solveHomework(Homework homework, String solution){
+        SolvedHomework solvedHomework = new SolvedHomework(homework, solution, this);
+        Evaluation.addHomework(solvedHomework);
+        return solvedHomework;
     }
 }

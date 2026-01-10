@@ -16,4 +16,13 @@ public class Poet extends ExperiencedLecturer {
         this.hatedAuthor = hatedAuthor;
     }
 
+    @Override
+    public GradedHomework gradedHomework(SolvedHomework solvedHomework) {
+
+        if (solvedHomework.getSolution().contains(hatedAuthor)) {
+            return new GradedHomework(solvedHomework, 0, this);
+        } else {
+            return new GradedHomework(solvedHomework, solvedHomework.getMaxPoints(), this);
+        }
+    }
 }

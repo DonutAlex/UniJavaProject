@@ -1,6 +1,7 @@
 package administration;
 
 import uczelnia.Course;
+import uczelnia.Homework;
 import uczelnia.Lecture;
 import uczelnia.Student;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class Evaluation {
     public static List<Course> courses = new ArrayList<>();
     public static List<Lecture> lectures = new ArrayList<>();
+    public static List<Homework> homeworks = new ArrayList<>();
 
     private static boolean[][] result;
 
@@ -19,6 +21,8 @@ public class Evaluation {
     public static void addLecture(Lecture lecture){
         lectures.add(lecture);
     }
+
+    public static void addHomework(Homework homework) { homeworks.add(homework);}
 
     public static List<Course> getCourseData(){
         return courses;

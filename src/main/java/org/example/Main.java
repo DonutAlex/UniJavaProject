@@ -2,10 +2,8 @@ package org.example;
 
 import administration.HumanResources;
 import administration.Evaluation;
-import uczelnia.Course;
-import uczelnia.Lecture;
-import uczelnia.Lecturer;
-import uczelnia.Student;
+import uczelnia.*;
+
 import java.util.List;
 
 public class Main {
@@ -16,6 +14,8 @@ public class Main {
         HumanResources.addPerson("Fryderyk", "Fazmiś", 1, false);
         HumanResources.addPerson("Włodzimierz", "Biały", 2, false);
         HumanResources.addPerson("Grzegorz", "Ciekawy", 3, false);
+
+        HumanResources.addPerson(15, 4, "Adam", "Małysz", 3);
 
         System.out.println("Wykładowcy:");
         for(int i=0; i< HumanResources.numberOfLectuers; i++){
@@ -65,5 +65,32 @@ public class Main {
 
         Evaluation.fillResult();
         Evaluation.printResult();
+
+        Homework homework = new Homework();
+
+        if (HumanResources.lecturers[2] instanceof ExperiencedLecturer)
+        {
+            ExperiencedLecturer m = (ExperiencedLecturer) HumanResources.lecturers[2];
+            homework = m.createHomework("Matma", "Matmama", 12);
+        }
+
+        SolvedHomework solvedHomework = HumanResources.getStudents()[0].solveHomework(homework, "public class");
+
+        for (Lecturer lecturer : HumanResources.getLecturers()) {
+
+            if (lecturer instanceof ExperiencedLecturer) {
+
+                ExperiencedLecturer experiencedLecturer;
+                experiencedLecturer = (ExperiencedLecturer) lecturer;
+
+                GradedHomework ocena = experiencedLecturer.gradeHomework(solvedHomework);
+
+                System.out.println("Oceniający: ");
+                experiencedLecturer.showInfo();
+                System.out.println("Ocena: " + ocena.getGrade());
+            }
+        }
+
+
     }
 }

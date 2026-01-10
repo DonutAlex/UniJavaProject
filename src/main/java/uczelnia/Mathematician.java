@@ -1,5 +1,7 @@
 package uczelnia;
 
+import administration.Evaluation;
+
 public class Mathematician extends ExperiencedLecturer {
     private int favortiteNumber;
 
@@ -16,4 +18,11 @@ public class Mathematician extends ExperiencedLecturer {
         this.favortiteNumber = favortiteNumber;
     }
 
+    @Override
+    public GradedHomework gradedHomework(SolvedHomework solvedHomework){
+        GradedHomework gradedHomework = new GradedHomework(solvedHomework, solvedHomework.getMaxPoints(), this);
+        if(solvedHomework.getSolution().length() > favortiteNumber)
+            gradedHomework = new GradedHomework(solvedHomework, 0, this);
+        return gradedHomework;
+    }
 }
